@@ -18,4 +18,7 @@ RUN /bin/bash -c 'rm -rf /var/www/html /tmp/webui-aria2/.git /tmp/webui-aria2/.g
 RUN /bin/bash -c 'ln -s /tmp/webui-aria2/ /var/www/html'
 RUN /bin/bash -c 'sed -i "s/localhost/$aria2_host/g" /var/www/html/configuration.js'
 
-ENTRYPOINT ["/usr/sbin/apache2", "-D", "FOREGROUND"]
+COPY daemon.sh /root/daemon.sh
+RUN /bin/bash -c 'chmod u+x /root/daemon.sh'
+
+ENTRYPOINT ["/root/daemon.sh"]

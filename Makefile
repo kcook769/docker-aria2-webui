@@ -1,5 +1,5 @@
 NAME=aria2-webui
-VERSION=1.0
+VERSION=1.0-1
 IMAGE_NAME=$(NAME):$(VERSION)
 DATA_DIR=/usr/local/media/aria
 CONTAINER_DATA_DIR=/data
